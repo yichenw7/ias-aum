@@ -11,7 +11,7 @@ const config = {
   ],
   devServer: {
     contentBase: base.output.path,
-    port: 3002,
+    port: 3000,
     index: `index.${BUILD_ENV}.html`,
     hot: true,
     https: false,
