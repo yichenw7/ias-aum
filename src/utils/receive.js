@@ -51,7 +51,7 @@ function Diff(key, _this, nextProps) {
   const {location, history} = _this.props;
   const prop = _this.props[key];
   const nProp = nextProps[key];
-  if (prop !== nProp) {
+  if (nProp && prop !== nProp) {
     const {result, payload} = nProp || {};
     if (nProp.status === 401) {
       history.replace({pathname: '/login', state: location});

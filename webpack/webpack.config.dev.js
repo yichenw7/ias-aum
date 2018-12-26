@@ -53,6 +53,12 @@ const config = {
           '^/aum/wau': '/wau'
         },
       },
+      '/user/login': {
+        target: `http://192.168.1.212:5550`,
+        pathRewrite: {
+          '^/user/login': '/login'
+        },
+      },
     },
   },
 };

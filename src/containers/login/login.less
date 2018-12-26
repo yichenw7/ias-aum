@@ -3,24 +3,27 @@
 
 .ss-login {
   position: fixed;
-  top: 40%;
+  top: 30%;
   left: 50%;
-  margin-left: -175px;
+  margin-left: -200px;
   &-container {
     .flex-center;
     flex-direction: column;
-    width: 350px;
-    padding: 15px;
+    width: 500px;
+    padding: 30px 20px;
     border-radius: 5px;
     background-color: @ss-background-color;
     & > .ant-input-affix-wrapper {
       margin-bottom: 20px;
-      height: 32px;
+      height: 40px;
     }
-    & > .ant-btn {
-      margin-top: 20px;
-      margin-bottom: 30px;
-      width: 100%;
+    & >a .ant-btn {
+      font-size: 16px;
+      margin-top: 10px;
+      span {
+        display: inline-block;
+        width: 50px;
+      }
     }
   }
 }

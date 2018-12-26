@@ -4,19 +4,13 @@ import { message } from 'antd';
 export const onEffect = async (action, response) => {
   try {
     const body = await response.json();
-    action.status = body.status;
+    action.status = response.status;
     action.loading = false;
-    
+
     action.success = response.status === 200;
     if (response.status === 200) {
-      if(action.url.indexOf('aum')){
-        action.success = true;
-        action.result = body;
-      }
-      else {
-        action.success = false;
-        action.error = '服务端异常';
-      }
+      action.success = true;
+      action.result = body;
     } else {
       action.success = false;
       action.error = '服务端异常';
@@ -33,7 +27,7 @@ export const onFetchOption = (option, item) => {
   if (item.key !== 'user.login') {
     if (UserCache.user) {
       option.headers = option.headers || {};
-      option.headers.userId = UserCache.user.userId;
+      option.headers.Authorization = UserCache.user.token;
     }
   }
   return option;

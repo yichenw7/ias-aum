@@ -1,19 +1,13 @@
 import { user } from './urls';
 
+const params = {
+  'user': 'test',
+  'password': 'test',
+};
 export default [
   {
     key: 'user.login',
     method: 'post',
-    url: () => `${user}login`,
+    url: () => `${user}`,
   },
-  {
-    key: 'user.info',
-    method: 'get',
-    url: () => user,
-  },
-  {
-    key: 'user.permission',
-    method: 'get',
-    url: () => `${user}permission`,
-  }
 ];

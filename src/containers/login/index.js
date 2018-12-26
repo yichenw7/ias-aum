@@ -1,12 +1,14 @@
 import './login.less';
 import React from 'react';
 import { Button, Icon, Input, message } from 'antd';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import UserCache from '@caches/UserCache';
 import md5 from 'blueimp-md5';
 import { QBService } from 'ss-web-start';
 import Loading from '@components/loading';
 import receive from '@utils/receive';
+import action from '../../actions';
 
 class Login extends React.PureComponent {
   state = {
@@ -22,20 +24,23 @@ class Login extends React.PureComponent {
   }
 
   componentWillMount() {
-    if (QBService.inQb()) {
-      QBService.getUser(UserCache.login);
-    }
+    // action.emit("user.login",{'user': 'test','password': 'test'})
   }
 
   componentWillReceiveProps(nextProps) {
-    receive.call(this, 'login', nextProps)
+    if(nextProps.login) {
+      console.log(nextProps.login.token)
+    }
+    receive.call(this,'login',nextProps)
       .success((result) => {
+        console.log(111)
         const {history, location} = nextProps;
+        console.log(result)
         UserCache.user = result;
         if (location && location.state) {
           history.push(location.state);
         } else {
-          history.push('/');
+          history.push('/aum');
         }
       })
       .error(err => (!err && message(err)));
@@ -53,17 +58,14 @@ class Login extends React.PureComponent {
     }
     UserCache.login({username, password: md5(password)});
   };
+
   handleChange = (key, value) => {
     this.setState({[key]: value});
   };
 
   render() {
     const {prefixCls} = this.props;
-    if (QBService.inQb()) {
-      return (
-        <Loading />
-      );
-    }
+
     return (
       <div className={`${prefixCls}-login`}>
         <div className={`${prefixCls}-login-container`}>
@@ -79,9 +81,11 @@ class Login extends React.PureComponent {
                  onPressEnter={this.handleSubmit}
           />
           <Button type='primary'
-                  htmlType='submit'
-                  onClick={this.handleSubmit}
-          >登录</Button>
+                htmlType='submit'
+                onClick={this.handleSubmit}
+          >登录
+              {/* <Link to="/aum">登录</Link> */}
+          </Button>
         </div>
       </div>
     );
@@ -89,10 +93,12 @@ class Login extends React.PureComponent {
 }
 
 function mapStateToProps(state) {
+  
   return {
     login: state.user.login,
   };
 }
+
 
 export default connect(mapStateToProps)(Login);
 
