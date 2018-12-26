@@ -28,14 +28,9 @@ class Login extends React.PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.login) {
-      console.log(nextProps.login.token)
-    }
     receive.call(this,'login',nextProps)
       .success((result) => {
-        console.log(111)
         const {history, location} = nextProps;
-        console.log(result)
         UserCache.user = result;
         if (location && location.state) {
           history.push(location.state);

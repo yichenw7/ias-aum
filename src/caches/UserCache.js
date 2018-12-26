@@ -39,7 +39,6 @@ class UserCache {
 
   login = (user) => {
     if (!user) return;
-    console.log(user)
     const {username, password} = user || {};
     Action.emit('user.login', {username, password, gatewayToken: true});
   };
