@@ -41,16 +41,16 @@ const config = {
           '^/aum/aum7': '/aum7'
         },
       },
-      '/aum/mau': {
+      '/mau/mau': {
         target: `http://192.168.1.212:5557`,
         pathRewrite: {
-          '^/aum/mau': '/mau'
+          '^/mau/mau': '/mau'
         },
       },
-      '/aum/wau': {
+      '/mau/wau': {
         target: `http://192.168.1.212:5557`,
         pathRewrite: {
-          '^/aum/wau': '/wau'
+          '^/mau/wau': '/wau'
         },
       },
       '/user/login': {
