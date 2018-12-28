@@ -92,9 +92,6 @@ class AumChart extends React.Component {
       aum7: commonOption,
       mau: commonOption,
       wau: commonOption,
-      test: {
-        test1: '1'
-      }
     }
   }
 
@@ -214,9 +211,8 @@ class AumChart extends React.Component {
       }
     };
   }
-  
-  componentDidUpdate(nextProps,nextState) {
-    // console.log("................",nextProps,nextState)
+
+  componentDidUpdate() {
     const aum30 = this.props.aum30;
     const aum7 = this.props.aum7;
     const mau = this.props.mau;

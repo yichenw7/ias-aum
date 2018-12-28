@@ -1,14 +1,10 @@
 import './login.less';
 import React from 'react';
 import { Button, Icon, Input, message } from 'antd';
-import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import UserCache from '@caches/UserCache';
 import md5 from 'blueimp-md5';
-import { QBService } from 'ss-web-start';
-import Loading from '@components/loading';
 import receive from '@utils/receive';
-import action from '../../actions';
 
 class Login extends React.PureComponent {
   state = {
