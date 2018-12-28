@@ -24,7 +24,6 @@ class Login extends React.PureComponent {
   }
 
   componentWillMount() {
-    // action.emit("user.login",{'user': 'test','password': 'test'})
   }
 
   componentWillReceiveProps(nextProps) {
@@ -78,9 +77,7 @@ class Login extends React.PureComponent {
           <Button type='primary'
                 htmlType='submit'
                 onClick={this.handleSubmit}
-          >登录
-              {/* <Link to="/aum">登录</Link> */}
-          </Button>
+          >登录</Button>
         </div>
       </div>
     );
