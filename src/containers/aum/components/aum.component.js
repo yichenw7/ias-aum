@@ -279,20 +279,14 @@ class AumChart extends React.Component {
                 }
               }
             ],
-            series: [
-              {
-                type: 'bar',
-                itemStyle: {
-                  color: '#D2691E' //图标颜色
-                },
-                lineStyle: {
-                  width: 2, //连线粗细
-                  color: '#FFA500', //连线颜色
-                },
-                name: '月活跃度',
-                data: cntMau,
-              }
-            ]
+            series: [{
+              type: 'bar',
+              itemStyle: {
+                color: '#b3ecff', //连线颜色
+              },
+              name: '月活跃度',
+              data: cntMau,
+            }],
           };
           mauChart.setOption(mauOption);
 
@@ -360,22 +354,16 @@ class AumChart extends React.Component {
                   }
                 }
               ],
-              series: [
-                {
-                  type: 'bar',
-                  itemStyle: {
-                    color: '#D2691E' //图标颜色
-                  },
-                  lineStyle: {
-                    width: 2, //连线粗细
-                    color: '#FFA500', //连线颜色
-                  },
-                  name: '周活跃度',
-                  data: cntWau,
-                }
-              ]
+              series: [{
+                type: 'bar',
+                itemStyle: {
+                  color: '#b3ecff', //连线颜色
+                },
+                name: '周活跃度',
+                data: cntWau,
+              }],
             };
-             wauChart.setOption(wauOption);
+            wauChart.setOption(wauOption);
           }
         }
       }
